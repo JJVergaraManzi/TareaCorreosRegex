@@ -1,5 +1,13 @@
 from RegexGenerator import RegexGenerator
 
-myRegexGenerator = RegexGenerator("123-555-7676")
+Date1 = open("Mach_MSGID.txt", "r")
 
-print(myRegexGenerator).get_regex()
+lines = Date1.readlines()
+ArrRegex= []
+
+f = open("Regex/"+"Regex-"+"MachMsgId"+".txt","a")
+for i in range(0, len(lines)):
+    theRegex = RegexGenerator(lines[i])
+    ArrRegex.append(theRegex)
+    f.write(ArrRegex+'\n')
+    print(ArrRegex[i].get_regex())
